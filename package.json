@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel ./src/**/*.html",
-    "build": "parcel build ./src/**/*.html"
+    "dev": "parcel index.html ./vkui-*/*.html",
+    "build": "parcel build index.html ./vkui-*/*.html"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
