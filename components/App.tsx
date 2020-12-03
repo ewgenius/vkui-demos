@@ -30,7 +30,7 @@ const panels = ["panel 1", "panel 2", "panel 3"];
 const modals = ["modal 1", "modal 2"];
 
 export const App = withAdaptivity(
-  ({ viewWidth }: AdaptivityProps) => {
+  ({ embedded, viewWidth }: AdaptivityProps & { embedded?: boolean }) => {
     const [panel, setPanel] = React.useState(panels[0]);
     const [modal, setModal] = React.useState<string | null>(null);
     const [popout, setPopout] = React.useState<any>(null);
@@ -60,14 +60,14 @@ export const App = withAdaptivity(
     return (
       <SplitLayout
         style={{ justifyContent: "center" }}
-        header={<PanelHeader separator={false} />}
+        header={!embedded && <PanelHeader separator={false} />}
         popout={popout}
         modal={modalRoot}
       >
         {isDesktop && (
           <SplitCol fixed width="280px" maxWidth="280px">
             <Panel>
-              <PanelHeader />
+              {!embedded && <PanelHeader />}
               {panels.map((i) => (
                 <Cell
                   key={i}
@@ -108,7 +108,9 @@ export const App = withAdaptivity(
         >
           <View activePanel={panel}>
             <Panel id={panels[0]}>
-              <PanelHeader right={<Avatar size={36} />}>Panel 1</PanelHeader>
+              {!embedded && (
+                <PanelHeader right={<Avatar size={36} />}>Panel 1</PanelHeader>
+              )}
               <Group>
                 <Placeholder
                   icon={<Icon56UsersOutline />}
@@ -125,7 +127,9 @@ export const App = withAdaptivity(
               </Group>
             </Panel>
             <Panel id={panels[1]}>
-              <PanelHeader right={<Avatar size={36} />}>Panel 2</PanelHeader>
+              {!embedded && (
+                <PanelHeader right={<Avatar size={36} />}>Panel 2</PanelHeader>
+              )}
               <Group>
                 <Placeholder>Доступ запрещён</Placeholder>
                 <Separator />
@@ -138,7 +142,9 @@ export const App = withAdaptivity(
               </Group>
             </Panel>
             <Panel id={panels[2]}>
-              <PanelHeader right={<Avatar size={36} />}>Panel 3</PanelHeader>
+              {!embedded && (
+                <PanelHeader right={<Avatar size={36} />}>Panel 3</PanelHeader>
+              )}
               <Group>
                 <Placeholder
                   icon={<Icon56MessageReadOutline />}

@@ -28,7 +28,7 @@ const Root = () => (
       <ConfigProvider platform={ANDROID} isWebView>
         <AdaptivityProvider embedded>
           <AppRoot>
-            <App />
+            <App embedded />
           </AppRoot>
         </AdaptivityProvider>
       </ConfigProvider>
