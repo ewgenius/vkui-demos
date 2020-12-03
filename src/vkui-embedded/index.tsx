@@ -6,7 +6,6 @@ import {
   ANDROID,
   AppRoot,
   ConfigProvider,
-  VKCOM,
 } from "@vkontakte/vkui";
 import { App } from "../components/App";
 
@@ -26,7 +25,7 @@ const Root = () => (
         overflow: "hidden",
       }}
     >
-      <ConfigProvider platform={VKCOM} isWebView>
+      <ConfigProvider platform={ANDROID} isWebView>
         <AdaptivityProvider embedded>
           <AppRoot>
             <App />
