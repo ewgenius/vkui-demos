@@ -5,7 +5,7 @@ import { AdaptivityProvider, ConfigProvider } from "@vkontakte/vkui";
 import { App } from "../components/App";
 
 const Root = () => (
-  <ConfigProvider>
+  <ConfigProvider isWebView>
     <AdaptivityProvider>
       <App />
     </AdaptivityProvider>
