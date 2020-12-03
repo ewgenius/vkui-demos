@@ -41,24 +41,6 @@ const Root = () => (
         }}
       >
         <AppRoot embedded>
-          <App />
-        </AppRoot>
-      </div>
-
-      <div
-        className="embedded"
-        style={{
-          maxWidth: 320,
-          width: "calc(100% - 20px)",
-          height: 667,
-          position: "relative",
-          margin: 10,
-          border: "1px solid #000",
-          boxSizing: "border-box",
-          overflow: "hidden",
-        }}
-      >
-        <AppRoot embedded>
           <Navigation />
         </AppRoot>
       </div>

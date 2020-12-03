@@ -970,6 +970,10 @@
   version "4.0.0-beta.34"
   resolved "https://github.com/VKCOM/VKUI.git#23883a9712d8d2fe3326cbe0507b665bd3b95360"
 
+"@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#d347f446fd0d01e9365557bd21212764d18823fc":
+  version "4.0.0-beta.34"
+  resolved "https://github.com/VKCOM/VKUI.git#d347f446fd0d01e9365557bd21212764d18823fc"
+
 abab@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"

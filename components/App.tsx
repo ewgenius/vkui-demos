@@ -19,6 +19,7 @@ import {
   Placeholder,
   Button,
   Avatar,
+  Snackbar,
 } from "@vkontakte/vkui";
 import {
   Icon56UsersOutline,
@@ -30,10 +31,30 @@ const panels = ["panel 1", "panel 2", "panel 3"];
 const modals = ["modal 1", "modal 2"];
 
 export const App = withAdaptivity(
-  ({ viewWidth }: AdaptivityProps) => {
+  ({ viewWidth }) => {
     const [panel, setPanel] = React.useState(panels[0]);
-    const [modal, setModal] = React.useState<string | null>(null);
-    const [popout, setPopout] = React.useState<any>(null);
+    const [modal, setModal] = React.useState(null);
+    const [popout, setPopout] = React.useState(null);
+    const [snackbar, setSnackbar] = React.useState(null);
+
+    const showSnackbar = () =>
+      setSnackbar(
+        <Snackbar
+          onClose={() => setSnackbar(null)}
+          after={
+            <Avatar
+              src={"https://robohash.org/123456.png?set=set2&size=150x150"}
+              size={32}
+            />
+          }
+        >
+          Отправлено Ивану Барышеву
+        </Snackbar>
+      );
+
+    const showAlert = () =>
+      setPopout(<Alert header="Alert!" onClose={() => setPopout(null)} />);
+
     const modalRoot = (
       <ModalRoot activeModal={modal}>
         <ModalPage
@@ -43,6 +64,8 @@ export const App = withAdaptivity(
         >
           <Group>
             <CellButton onClick={() => setModal(modals[1])}>Modal 2</CellButton>
+            <CellButton onClick={showAlert}>Alert</CellButton>
+            <CellButton onClick={showSnackbar}>Snackbar</CellButton>
           </Group>
         </ModalPage>
         <ModalPage
@@ -56,7 +79,9 @@ export const App = withAdaptivity(
         </ModalPage>
       </ModalRoot>
     );
-    const isDesktop = viewWidth && viewWidth >= ViewWidth.TABLET;
+
+    const isDesktop = viewWidth >= ViewWidth.TABLET;
+
     return (
       <SplitLayout
         style={{ justifyContent: "center" }}
@@ -67,7 +92,7 @@ export const App = withAdaptivity(
         {isDesktop && (
           <SplitCol fixed width="280px" maxWidth="280px">
             <Panel>
-              {<PanelHeader />}
+              <PanelHeader />
               {panels.map((i) => (
                 <Cell
                   key={i}
@@ -88,18 +113,13 @@ export const App = withAdaptivity(
               <Separator />
               <Cell onClick={() => setModal(modals[0])}>modal 1</Cell>
               <Cell onClick={() => setModal(modals[1])}>modal 2</Cell>
-              <Cell
-                onClick={() =>
-                  setPopout(
-                    <Alert header="Alert!" onClose={() => setPopout(null)} />
-                  )
-                }
-              >
-                alert
-              </Cell>
+              <Cell onClick={showAlert}>alert</Cell>
+              <Cell onClick={showSnackbar}>snackbar</Cell>
+              {snackbar}
             </Panel>
           </SplitCol>
         )}
+
         <SplitCol
           animate={!isDesktop}
           spaced={isDesktop}
@@ -108,7 +128,7 @@ export const App = withAdaptivity(
         >
           <View activePanel={panel}>
             <Panel id={panels[0]}>
-              {<PanelHeader right={<Avatar size={36} />}>Panel 1</PanelHeader>}
+              <PanelHeader right={<Avatar size={36} />}>Panel 1</PanelHeader>
               <Group>
                 <Placeholder
                   icon={<Icon56UsersOutline />}
@@ -124,8 +144,9 @@ export const App = withAdaptivity(
                 </Placeholder>
               </Group>
             </Panel>
+
             <Panel id={panels[1]}>
-              {<PanelHeader right={<Avatar size={36} />}>Panel 2</PanelHeader>}
+              <PanelHeader right={<Avatar size={36} />}>Panel 2</PanelHeader>
               <Group>
                 <Placeholder>Доступ запрещён</Placeholder>
                 <Separator />
@@ -137,8 +158,9 @@ export const App = withAdaptivity(
                 </Placeholder>
               </Group>
             </Panel>
+
             <Panel id={panels[2]}>
-              {<PanelHeader right={<Avatar size={36} />}>Panel 3</PanelHeader>}
+              <PanelHeader right={<Avatar size={36} />}>Panel 3</PanelHeader>
               <Group>
                 <Placeholder
                   icon={<Icon56MessageReadOutline />}
