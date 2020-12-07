@@ -17,7 +17,7 @@
     "@vkontakte/icons": "^1.60.0",
     "@vkontakte/vk-bridge": "^2.3.0",
     "@vkontakte/vkjs": "^0.16.0",
-    "@vkontakte/vkui": "https://github.com/VKCOM/VKUI.git#d347f446fd0d01e9365557bd21212764d18823fc",
+    "@vkontakte/vkui": "https://github.com/VKCOM/VKUI.git#c83fd4e2e29ad9ded1a38792cb982fe35c2f1cb7",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
