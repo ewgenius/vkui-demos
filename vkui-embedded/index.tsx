@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render } from "react-dom";
 import "@vkontakte/vkui/dist/vkui.css";
-import { AppRoot } from "@vkontakte/vkui";
+import { AdaptivityProvider, AppRoot, ConfigProvider } from "@vkontakte/vkui";
 import { App } from "../components/App";
 import { Navigation } from "../components/Navigation";
 
@@ -23,7 +23,11 @@ const Root = () => (
         }}
       >
         <AppRoot embedded>
-          <App />
+          <ConfigProvider>
+            <AdaptivityProvider>
+              <App />
+            </AdaptivityProvider>
+          </ConfigProvider>
         </AppRoot>
       </div>
 

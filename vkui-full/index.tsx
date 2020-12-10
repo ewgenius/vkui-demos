@@ -1,12 +1,14 @@
 import * as React from "react";
 import { render } from "react-dom";
 import "@vkontakte/vkui/dist/vkui.css";
-import { AppRoot } from "@vkontakte/vkui";
+import { AdaptivityProvider, AppRoot, ConfigProvider } from "@vkontakte/vkui";
 import { App } from "../components/App";
 
 render(
-  <AppRoot>
-    <App />
-  </AppRoot>,
+  <ConfigProvider>
+    <AdaptivityProvider>
+      <App />
+    </AdaptivityProvider>
+  </ConfigProvider>,
   document.getElementById("root")
 );

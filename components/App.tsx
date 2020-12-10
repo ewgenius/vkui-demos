@@ -30,8 +30,8 @@ import {
 const panels = ["panel 1", "panel 2", "panel 3"];
 const modals = ["modal 1", "modal 2"];
 
-export const App = withAdaptivity(
-  ({ viewWidth }) => {
+export const App: React.FC<AdaptivityProps> = withAdaptivity(
+  ({ viewWidth }: AdaptivityProps) => {
     const [panel, setPanel] = React.useState(panels[0]);
     const [modal, setModal] = React.useState(null);
     const [popout, setPopout] = React.useState(null);
@@ -115,10 +115,11 @@ export const App = withAdaptivity(
               <Cell onClick={() => setModal(modals[1])}>modal 2</Cell>
               <Cell onClick={showAlert}>alert</Cell>
               <Cell onClick={showSnackbar}>snackbar</Cell>
-              {snackbar}
             </Panel>
           </SplitCol>
         )}
+
+        {snackbar}
 
         <SplitCol
           animate={!isDesktop}
