@@ -7,7 +7,9 @@ import { App } from "../components/App";
 render(
   <ConfigProvider>
     <AdaptivityProvider>
-      <App />
+      <AppRoot>
+        <App />
+      </AppRoot>
     </AdaptivityProvider>
   </ConfigProvider>,
   document.getElementById("root")
