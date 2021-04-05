@@ -966,10 +966,6 @@
   resolved "https://registry.yarnpkg.com/@vkontakte/vkjs/-/vkjs-0.16.0.tgz#345a98453d8ed12dcc6c0d1316bcd520e44b748c"
   integrity sha512-XkRSveyHtjAZTk7F7L9x4j172mZacsgLblJcnonQGavGvenixxHtHWG/LAk6XYTDLxC81thwnYdlRXYdZox+iA==
 
-"@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#feature/vkui-embed":
-  version "4.0.0-beta.37"
-  resolved "https://github.com/VKCOM/VKUI.git#2a7485ba9603d898964254bbb9dc99995e62148a"
-
 "@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#v4":
   version "4.0.0-beta.37"
   resolved "https://github.com/VKCOM/VKUI.git#ad09b62de644548db33b4ed09ed556f598de3966"
